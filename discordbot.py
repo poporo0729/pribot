@@ -1,9 +1,8 @@
-from discord.ext import commands
-import os
-import traceback
+import discord
 
-token = os.environ['DISCORD_BOT_TOKEN']
-bot = commands.Bot(command_prefix='/')
+TOKEN = 'TOKENID' #TOKENIDの部分を自分のIDに変える
+
+client = discord.Client()
 
 BossNum = ["1","2","3","4","5"]
 # If someone reserve an attack, add to this list.
@@ -13,14 +12,7 @@ Booking3 = []
 Booking4 = []
 Booking5 = []
 
-@bot.event
-async def on_command_error(ctx, error):
-    orig_error = getattr(error, "original", error)
-    error_msg = ''.join(traceback.TracebackException.from_exception(orig_error).format())
-    await ctx.send(error_msg)
-
-
-@bot.command()
+@client.event
 async def on_message(message):
     listFlag = 0
     bookFlag = 0
@@ -102,5 +94,6 @@ async def on_message(message):
     elif message.content.startswith("cmd"):
         reply = "予約:rsv 1-5 / 予約表示:rsv list 1-5 / 予約全表示:rsv! / 予約削除:fin 1-5 / 予約全削除:rsv END / 通知:ment 1-5"
         await message.channel.send(reply)
+         
 
-bot.run(token)
+client.run(TOKEN)
