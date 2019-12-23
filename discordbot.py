@@ -4,5 +4,6 @@ import traceback
 
 token = os.environ['DISCORD_BOT_TOKEN']
 
+client = discord.Client()
 
-bot.run(token)
+client.run(token)
