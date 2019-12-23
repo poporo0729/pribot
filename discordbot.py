@@ -3,7 +3,7 @@ import os
 import traceback
 
 token = os.environ['DISCORD_BOT_TOKEN']
-
+bot = commands.Bot(command_prefix='/')
 
 @bot.event
 async def on_command_error(ctx, error):
