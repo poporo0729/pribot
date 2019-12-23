@@ -5,6 +5,14 @@ import traceback
 token = os.environ['DISCORD_BOT_TOKEN']
 bot = commands.Bot(command_prefix='/')
 
+BossNum = ["1","2","3","4","5"]
+# If someone reserve an attack, add to this list.
+Booking1 = []
+Booking2 = []
+Booking3 = []
+Booking4 = []
+Booking5 = []
+
 @bot.event
 async def on_command_error(ctx, error):
     orig_error = getattr(error, "original", error)
