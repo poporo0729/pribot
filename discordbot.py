@@ -2,10 +2,10 @@ from discord.ext import commands
 import os
 import traceback
 
-bot = commands.Bot(command_prefix='/')
+clinet = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
 
-@bot.command()
+@clinet.command()
 async def ping(ctx):
     await ctx.send('pong')
 
@@ -13,7 +13,7 @@ async def ping(ctx):
 async def ping(ctx):
     await ctx.send('pong')
 
-bot = discord.Client()
+clinet = discord.Client()
 
 BossNum = ["1","2","3","4","5"]
 # If someone reserve an attack, add to this list.
@@ -23,7 +23,7 @@ Booking3 = []
 Booking4 = []
 Booking5 = []
 
-@bot.event
+@clinet.event
 async def on_message(message):
     listFlag = 0
     bookFlag = 0
@@ -106,4 +106,4 @@ async def on_message(message):
         reply = "予約:rsv 1-5 / 予約表示:rsv list 1-5 / 予約全表示:rsv! / 予約削除:fin 1-5 / 予約全削除:rsv END / 通知:ment 1-5"
         await message.channel.send(reply)
 
-bot.run(token)
+clinet.run(token)
